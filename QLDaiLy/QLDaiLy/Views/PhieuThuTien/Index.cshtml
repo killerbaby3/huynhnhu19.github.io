@@ -1,0 +1,45 @@
+﻿@model IEnumerable<QLDaiLy.Models.PhieuThuTien>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NgayThu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TienThu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MaPhieuXuat)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NgayThu)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TienThu)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaPhieuXuat)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.MaPhieuThuTien }) |
+            @Html.ActionLink("Details", "Details", new { id=item.MaPhieuThuTien }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.MaPhieuThuTien })
+        </td>
+    </tr>
+}
+
+</table>

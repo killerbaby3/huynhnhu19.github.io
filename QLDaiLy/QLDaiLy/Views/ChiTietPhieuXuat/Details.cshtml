@@ -1,0 +1,50 @@
+﻿@model QLDaiLy.Models.ChiTietPhieuXuat
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ChiTietPhieuXuat</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SoLuongDat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoLuongDat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TinhTrang)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TinhTrang)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TongTien)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TongTien)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaMH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaMH)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MaCTPhieuXuat }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

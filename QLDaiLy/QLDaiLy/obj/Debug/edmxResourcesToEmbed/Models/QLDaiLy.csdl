@@ -1,0 +1,225 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QLDaiLyModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="ChiTietPhieuXuat">
+    <Key>
+      <PropertyRef Name="MaCTPhieuXuat" />
+    </Key>
+    <Property Name="MaCTPhieuXuat" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SoLuongDat" Type="Int32" />
+    <Property Name="TinhTrang" Type="Boolean" Nullable="false" />
+    <Property Name="TongTien" Type="Int32" Nullable="false" />
+    <Property Name="MaMH" Type="Int32" />
+    <NavigationProperty Name="MatHang" Relationship="Self.pk_CTXuat_MatHang" FromRole="ChiTietPhieuXuat" ToRole="MatHang" />
+    <NavigationProperty Name="PhieuXuatHangs" Relationship="Self.pk_XuatHang_ChiTietPhieuXuat" FromRole="ChiTietPhieuXuat" ToRole="PhieuXuatHang" />
+  </EntityType>
+  <EntityType Name="DaiLy">
+    <Key>
+      <PropertyRef Name="MaDL" />
+    </Key>
+    <Property Name="MaDL" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenDL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DiaChi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DienThoai" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Quan" Type="Int32" Nullable="false" />
+    <Property Name="NgayTiepNhan" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="TienNo" Type="Int32" />
+    <Property Name="MaLoaiDL" Type="Int32" />
+    <NavigationProperty Name="LoaiDaiLy" Relationship="Self.pk_DaiLy_LoaiDaiLy" FromRole="DaiLy" ToRole="LoaiDaiLy" />
+    <NavigationProperty Name="PhieuXuatHangs" Relationship="Self.pk_XuatHang_DaiLy" FromRole="DaiLy" ToRole="PhieuXuatHang" />
+  </EntityType>
+  <EntityType Name="DonVi">
+    <Key>
+      <PropertyRef Name="MaDonVi" />
+    </Key>
+    <Property Name="MaDonVi" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenDonVi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="GhiChu" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="MatHangs" Relationship="Self.pk_MatHang_DonVi" FromRole="DonVi" ToRole="MatHang" />
+  </EntityType>
+  <EntityType Name="LoaiDaiLy">
+    <Key>
+      <PropertyRef Name="MaLoaiDL" />
+    </Key>
+    <Property Name="MaLoaiDL" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenLoaiDL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="GhiChu" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="DaiLies" Relationship="Self.pk_DaiLy_LoaiDaiLy" FromRole="LoaiDaiLy" ToRole="DaiLy" />
+  </EntityType>
+  <EntityType Name="LoaiMatHang">
+    <Key>
+      <PropertyRef Name="MaLoaiMH" />
+    </Key>
+    <Property Name="MaLoaiMH" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenLoaiMH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="GhiChu" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="MatHangs" Relationship="Self.pk_MatHang_LoaiMatHang" FromRole="LoaiMatHang" ToRole="MatHang" />
+  </EntityType>
+  <EntityType Name="MatHang">
+    <Key>
+      <PropertyRef Name="MaMH" />
+    </Key>
+    <Property Name="MaMH" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenMatHang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DonGia" Type="Int32" Nullable="false" />
+    <Property Name="SoLuongCon" Type="Int32" Nullable="false" />
+    <Property Name="MaLoaiMH" Type="Int32" />
+    <Property Name="MaDonVi" Type="Int32" />
+    <NavigationProperty Name="ChiTietPhieuXuats" Relationship="Self.pk_CTXuat_MatHang" FromRole="MatHang" ToRole="ChiTietPhieuXuat" />
+    <NavigationProperty Name="DonVi" Relationship="Self.pk_MatHang_DonVi" FromRole="MatHang" ToRole="DonVi" />
+    <NavigationProperty Name="LoaiMatHang" Relationship="Self.pk_MatHang_LoaiMatHang" FromRole="MatHang" ToRole="LoaiMatHang" />
+  </EntityType>
+  <EntityType Name="PhieuThuTien">
+    <Key>
+      <PropertyRef Name="MaPhieuThuTien" />
+    </Key>
+    <Property Name="MaPhieuThuTien" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NgayThu" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="TienThu" Type="Int32" Nullable="false" />
+    <Property Name="MaPhieuXuat" Type="Int32" />
+    <NavigationProperty Name="PhieuXuatHang" Relationship="Self.pk_PhieuThuTien_PhieuXuatHang" FromRole="PhieuThuTien" ToRole="PhieuXuatHang" />
+  </EntityType>
+  <EntityType Name="PhieuXuatHang">
+    <Key>
+      <PropertyRef Name="MaPhieuXuat" />
+    </Key>
+    <Property Name="MaPhieuXuat" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NgayLapPhieuDat" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="NgayLapPhieuXuat" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="MaDL" Type="Int32" />
+    <Property Name="MaCTPhieu" Type="Int32" />
+    <NavigationProperty Name="ChiTietPhieuXuat" Relationship="Self.pk_XuatHang_ChiTietPhieuXuat" FromRole="PhieuXuatHang" ToRole="ChiTietPhieuXuat" />
+    <NavigationProperty Name="DaiLy" Relationship="Self.pk_XuatHang_DaiLy" FromRole="PhieuXuatHang" ToRole="DaiLy" />
+    <NavigationProperty Name="PhieuThuTiens" Relationship="Self.pk_PhieuThuTien_PhieuXuatHang" FromRole="PhieuXuatHang" ToRole="PhieuThuTien" />
+  </EntityType>
+  <EntityType Name="ThamSo">
+    <Key>
+      <PropertyRef Name="MaTS" />
+    </Key>
+    <Property Name="MaTS" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GiaTri" Type="Int32" Nullable="false" />
+    <Property Name="GhiChu" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <Association Name="pk_CTXuat_MatHang">
+    <End Role="MatHang" Type="Self.MatHang" Multiplicity="0..1" />
+    <End Role="ChiTietPhieuXuat" Type="Self.ChiTietPhieuXuat" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MatHang">
+        <PropertyRef Name="MaMH" />
+      </Principal>
+      <Dependent Role="ChiTietPhieuXuat">
+        <PropertyRef Name="MaMH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="pk_XuatHang_ChiTietPhieuXuat">
+    <End Role="ChiTietPhieuXuat" Type="Self.ChiTietPhieuXuat" Multiplicity="0..1" />
+    <End Role="PhieuXuatHang" Type="Self.PhieuXuatHang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ChiTietPhieuXuat">
+        <PropertyRef Name="MaCTPhieuXuat" />
+      </Principal>
+      <Dependent Role="PhieuXuatHang">
+        <PropertyRef Name="MaCTPhieu" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="pk_DaiLy_LoaiDaiLy">
+    <End Role="LoaiDaiLy" Type="Self.LoaiDaiLy" Multiplicity="0..1" />
+    <End Role="DaiLy" Type="Self.DaiLy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LoaiDaiLy">
+        <PropertyRef Name="MaLoaiDL" />
+      </Principal>
+      <Dependent Role="DaiLy">
+        <PropertyRef Name="MaLoaiDL" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="pk_XuatHang_DaiLy">
+    <End Role="DaiLy" Type="Self.DaiLy" Multiplicity="0..1" />
+    <End Role="PhieuXuatHang" Type="Self.PhieuXuatHang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DaiLy">
+        <PropertyRef Name="MaDL" />
+      </Principal>
+      <Dependent Role="PhieuXuatHang">
+        <PropertyRef Name="MaDL" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="pk_MatHang_DonVi">
+    <End Role="DonVi" Type="Self.DonVi" Multiplicity="0..1" />
+    <End Role="MatHang" Type="Self.MatHang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DonVi">
+        <PropertyRef Name="MaDonVi" />
+      </Principal>
+      <Dependent Role="MatHang">
+        <PropertyRef Name="MaDonVi" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="pk_MatHang_LoaiMatHang">
+    <End Role="LoaiMatHang" Type="Self.LoaiMatHang" Multiplicity="0..1" />
+    <End Role="MatHang" Type="Self.MatHang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LoaiMatHang">
+        <PropertyRef Name="MaLoaiMH" />
+      </Principal>
+      <Dependent Role="MatHang">
+        <PropertyRef Name="MaLoaiMH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="pk_PhieuThuTien_PhieuXuatHang">
+    <End Role="PhieuXuatHang" Type="Self.PhieuXuatHang" Multiplicity="0..1" />
+    <End Role="PhieuThuTien" Type="Self.PhieuThuTien" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PhieuXuatHang">
+        <PropertyRef Name="MaPhieuXuat" />
+      </Principal>
+      <Dependent Role="PhieuThuTien">
+        <PropertyRef Name="MaPhieuXuat" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="QLDaiLyEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ChiTietPhieuXuats" EntityType="Self.ChiTietPhieuXuat" />
+    <EntitySet Name="DaiLies" EntityType="Self.DaiLy" />
+    <EntitySet Name="DonVis" EntityType="Self.DonVi" />
+    <EntitySet Name="LoaiDaiLies" EntityType="Self.LoaiDaiLy" />
+    <EntitySet Name="LoaiMatHangs" EntityType="Self.LoaiMatHang" />
+    <EntitySet Name="MatHangs" EntityType="Self.MatHang" />
+    <EntitySet Name="PhieuThuTiens" EntityType="Self.PhieuThuTien" />
+    <EntitySet Name="PhieuXuatHangs" EntityType="Self.PhieuXuatHang" />
+    <EntitySet Name="ThamSoes" EntityType="Self.ThamSo" />
+    <AssociationSet Name="pk_CTXuat_MatHang" Association="Self.pk_CTXuat_MatHang">
+      <End Role="MatHang" EntitySet="MatHangs" />
+      <End Role="ChiTietPhieuXuat" EntitySet="ChiTietPhieuXuats" />
+    </AssociationSet>
+    <AssociationSet Name="pk_XuatHang_ChiTietPhieuXuat" Association="Self.pk_XuatHang_ChiTietPhieuXuat">
+      <End Role="ChiTietPhieuXuat" EntitySet="ChiTietPhieuXuats" />
+      <End Role="PhieuXuatHang" EntitySet="PhieuXuatHangs" />
+    </AssociationSet>
+    <AssociationSet Name="pk_DaiLy_LoaiDaiLy" Association="Self.pk_DaiLy_LoaiDaiLy">
+      <End Role="LoaiDaiLy" EntitySet="LoaiDaiLies" />
+      <End Role="DaiLy" EntitySet="DaiLies" />
+    </AssociationSet>
+    <AssociationSet Name="pk_XuatHang_DaiLy" Association="Self.pk_XuatHang_DaiLy">
+      <End Role="DaiLy" EntitySet="DaiLies" />
+      <End Role="PhieuXuatHang" EntitySet="PhieuXuatHangs" />
+    </AssociationSet>
+    <AssociationSet Name="pk_MatHang_DonVi" Association="Self.pk_MatHang_DonVi">
+      <End Role="DonVi" EntitySet="DonVis" />
+      <End Role="MatHang" EntitySet="MatHangs" />
+    </AssociationSet>
+    <AssociationSet Name="pk_MatHang_LoaiMatHang" Association="Self.pk_MatHang_LoaiMatHang">
+      <End Role="LoaiMatHang" EntitySet="LoaiMatHangs" />
+      <End Role="MatHang" EntitySet="MatHangs" />
+    </AssociationSet>
+    <AssociationSet Name="pk_PhieuThuTien_PhieuXuatHang" Association="Self.pk_PhieuThuTien_PhieuXuatHang">
+      <End Role="PhieuXuatHang" EntitySet="PhieuXuatHangs" />
+      <End Role="PhieuThuTien" EntitySet="PhieuThuTiens" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

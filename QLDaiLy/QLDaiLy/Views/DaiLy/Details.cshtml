@@ -1,0 +1,82 @@
+﻿@model QLDaiLy.Models.DaiLy
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>DaiLy</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TenDL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenDL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DiaChi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DiaChi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DienThoai)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DienThoai)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Quan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Quan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NgayTiepNhan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NgayTiepNhan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TienNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TienNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaLoaiDL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaLoaiDL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaLoaiDaiLy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaLoaiDaiLy)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MaDL }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

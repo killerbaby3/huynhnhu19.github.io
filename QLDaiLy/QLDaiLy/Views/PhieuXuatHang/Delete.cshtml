@@ -1,0 +1,64 @@
+﻿@model QLDaiLy.Models.PhieuXuatHang
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>PhieuXuatHang</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.phieuThuTien.MaPhieuThuTien)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.phieuThuTien.MaPhieuThuTien)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NgayLapPhieuDat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NgayLapPhieuDat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NgayLapPhieuXuat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NgayLapPhieuXuat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaDL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaDL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaCTPhieu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaCTPhieu)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

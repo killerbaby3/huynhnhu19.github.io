@@ -1,0 +1,103 @@
+﻿@model QLDaiLy.Models.LoaiMatHang
+
+@{
+    ViewBag.Title = "Details";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width-device-width,initial-sacle=1" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/scripts/bootstrap.min.js"></script>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+
+</head>
+
+<body style="background-color:black">
+
+    <img src="~/Images/2.PNG" />
+
+    <div class="navbar navbar-default" style="background-color:black">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">G6DL</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Giới Thiệu</a></li>
+                <li><a href="#">Liên hệ</a></li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Tài Khoản<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Đổi Mật Khẩu</a></li>
+                        <li><a href="#">Đăng Xuất</a></li>
+
+                    </ul>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#"><span class="glyphicon glyphicon-user"></span>Tổng Đại Lý 1</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-2">
+            <h1 style="color:cadetblue">QUẢN LÝ</h1>
+            <ul class="list-group" style="background-color:dimgray">
+                <li class="list-group-item">Đại Lý</li>
+                <li class="list-group-item">Loại Đại Lý</li>
+                <li class="list-group-item">Mặt Hàng</li>
+                <li class="list-group-item list-group-item-info">Loại Mặt Hàng</li>
+                <li class="list-group-item">Phiếu Xuất Hàng</li>
+                <li class="list-group-item">Phiếu Thu Tiền</li>
+                <li class="list-group-item">Đại Lý</li>
+            </ul>
+        </div>
+
+        <div class="col-md-9">
+            <h2>Chi Tiết</h2>
+
+            <div>
+                <h4>Loại Mặt Hàng</h4>
+                <hr />
+                <dl class="dl-horizontal">
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.MaLoaiMH)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.MaLoaiMH)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.TenLoaiMH)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.TenLoaiMH)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.GhiChu)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.GhiChu)
+                    </dd>
+
+                </dl>
+            </div>
+            <p>
+                @Html.ActionLink("Sửa", "Edit", new { id = Model.MaLoaiMH }) |
+                @Html.ActionLink("Trở về", "Index")
+            </p>
+        </div>
+    </div>
+</body>
+</html>
+

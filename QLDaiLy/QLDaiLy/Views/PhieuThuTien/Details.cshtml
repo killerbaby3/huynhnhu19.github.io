@@ -1,0 +1,42 @@
+﻿@model QLDaiLy.Models.PhieuThuTien
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>PhieuThuTien</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NgayThu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NgayThu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TienThu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TienThu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaPhieuXuat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaPhieuXuat)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MaPhieuThuTien }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

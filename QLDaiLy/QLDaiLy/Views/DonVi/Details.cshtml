@@ -1,0 +1,42 @@
+﻿@model QLDaiLy.Models.DonVi
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>DonVi</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TenDonVi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenDonVi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GhiChu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GhiChu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaMatHang)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaMatHang)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MaDonVi }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

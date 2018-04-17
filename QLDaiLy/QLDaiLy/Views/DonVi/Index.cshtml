@@ -2,44 +2,104 @@
 
 @{
     ViewBag.Title = "Index";
+    Layout = null;
 }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width-device-width,initial-sacle=1" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/scripts/bootstrap.min.js"></script>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
 
-<h2>Index</h2>
+</head>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.TenDonVi)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.GhiChu)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MaMatHang)
-        </th>
-        <th></th>
-    </tr>
+<body style="background-color:black">
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.TenDonVi)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.GhiChu)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MaMatHang)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.MaDonVi }) |
-            @Html.ActionLink("Details", "Details", new { id=item.MaDonVi }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.MaDonVi })
-        </td>
-    </tr>
-}
+    <img src="~/Images/2.PNG" />
 
-</table>
+    <div class="navbar navbar-default" style="background-color:black">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">G6DL</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Giới Thiệu</a></li>
+                <li><a href="#">Liên hệ</a></li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Tài Khoản<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Đổi Mật Khẩu</a></li>
+                        <li><a href="#">Đăng Xuất</a></li>
+
+                    </ul>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#"><span class="glyphicon glyphicon-user"></span>Tổng Đại Lý 1</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-2">
+            <h1 style="color:cadetblue">QUẢN LÝ</h1>
+            <ul class="list-group" style="background-color:dimgray">
+                <li class="list-group-item">Đại Lý</li>
+                <li class="list-group-item">Loại Đại Lý</li>
+                <li class="list-group-item">Mặt Hàng</li>
+                <li class="list-group-item">Loại Mặt Hàng</li>
+                <li class="list-group-item">Phiếu Xuất Hàng</li>
+                <li class="list-group-item">Phiếu Thu Tiền</li>
+                <li class="list-group-item list-group-item-info">Đại Lý</li>
+            </ul>
+        </div>
+
+        <div class="col-md-9">
+            <p>
+                @Html.ActionLink("Thêm Mới", "Create")
+            </p>
+            <table class="table">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.TenDonVi)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.GhiChu)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.MaMatHang)
+                    </th>
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TenDonVi)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.GhiChu)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.MaMatHang)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Sửa", "Edit", new { id = item.MaDonVi }) |
+                            @Html.ActionLink("Chi Tiết", "Details", new { id = item.MaDonVi }) |
+                            @Html.ActionLink("Xóa", "Delete", new { id = item.MaDonVi })
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        </div>
+    </div>
+</body>
+</html>
+
+

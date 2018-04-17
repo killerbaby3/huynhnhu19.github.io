@@ -2,81 +2,142 @@
 
 @{
     ViewBag.Title = "Details";
+    Layout = null;
 }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width-device-width,initial-sacle=1" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/scripts/bootstrap.min.js"></script>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
 
-<h2>Details</h2>
+</head>
 
-<div>
-    <h4>DaiLy</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.TenDL)
-        </dt>
+<body style="background-color:black">
 
-        <dd>
-            @Html.DisplayFor(model => model.TenDL)
-        </dd>
+    <img src="~/Images/2.PNG" />
 
-        <dt>
-            @Html.DisplayNameFor(model => model.DiaChi)
-        </dt>
+    <div class="navbar navbar-default" style="background-color:black">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">G6DL</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Giới Thiệu</a></li>
+                <li><a href="#">Liên hệ</a></li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Tài Khoản<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Đổi Mật Khẩu</a></li>
+                        <li><a href="#">Đăng Xuất</a></li>
 
-        <dd>
-            @Html.DisplayFor(model => model.DiaChi)
-        </dd>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#"><span class="glyphicon glyphicon-user"></span>Tổng Đại Lý 1</a></li>
+            </ul>
+        </div>
+    </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.DienThoai)
-        </dt>
+    <div class="row">
+        <div class="col-md-2">
+            <h1 style="color:cadetblue">QUẢN LÝ</h1>
+            <ul class="list-group" style="background-color:dimgray">
+                <li class="list-group-item list-group-item-info">Đại Lý</li>
+                <li class="list-group-item">Loại Đại Lý</li>
+                <li class="list-group-item">Mặt Hàng</li>
+                <li class="list-group-item">Loại Mặt Hàng</li>
+                <li class="list-group-item">Phiếu Xuất Hàng</li>
+                <li class="list-group-item">Phiếu Thu Tiền</li>
+                <li class="list-group-item">Đại Lý</li>
+            </ul>
+        </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.DienThoai)
-        </dd>
+        <div class="col-md-9">
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Quan)
-        </dt>
+            <h2>Chi Tiết</h2>
 
-        <dd>
-            @Html.DisplayFor(model => model.Quan)
-        </dd>
+            <div>
+                <h4>Đại Lý</h4>
+                <hr />
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.TenDL)
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.NgayTiepNhan)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.TenDL)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.NgayTiepNhan)
-        </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.DiaChi)
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.TienNo)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.DiaChi)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.TienNo)
-        </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.DienThoai)
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.MaLoaiDL)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.DienThoai)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.MaLoaiDL)
-        </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Quan)
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.MaLoaiDaiLy)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Quan)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.MaLoaiDaiLy)
-        </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.NgayTiepNhan)
+                    </dt>
 
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.MaDL }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+                    <dd>
+                        @Html.DisplayFor(model => model.NgayTiepNhan)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.TienNo)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.TienNo)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.MaLoaiDL)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.MaLoaiDL)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.MaLoaiDaiLy)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.MaLoaiDaiLy)
+                    </dd>
+
+                </dl>
+            </div>
+            <p>
+                @Html.ActionLink("Sửa", "Edit", new { id = Model.MaDL }) |
+                @Html.ActionLink("Trở về", "Index")
+            </p>
+        </div>
+    </div>
+</body>
+</html>
+
